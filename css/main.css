@@ -1,0 +1,480 @@
+@import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Castoro+Titling&family=Dawning+of+a+New+Day&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    background-color: #FFEDF9 !important;
+
+}
+
+.contenedor-head {
+    display: flex !important;
+    justify-content: space-around !important;
+    background-color: #f7a7d8 !important;
+}
+
+.item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+}
+
+.icon {
+    width: 30px !important;
+
+}
+
+#burger-menu {
+    cursor: pointer;
+    height: 27px;
+    width: 27px;
+    margin: 20px;
+    overflow: visible;
+    position: relative;
+    z-index: 2;
+
+    font-family: sans-serif;
+
+
+    span,
+    span:before,
+    span:after {
+        background: #000000;
+        display: block;
+        height: 2px;
+        opacity: 1;
+        position: absolute;
+        transition: 0.3s ease-in-out;
+    }
+
+    span:before,
+    span:after {
+        content: '';
+    }
+
+
+    span:before {
+        left: 0px;
+        top: -10px;
+        width: 27px;
+    }
+
+
+    span {
+        right: 0px;
+        top: 13px;
+        width: 27px;
+    }
+
+
+    span:after {
+        left: 0px;
+        top: 10px;
+        width: 27px;
+    }
+
+
+    &.close {
+
+
+        span:before {
+            top: 0px;
+            transform: rotate(90deg);
+            width: 27px;
+        }
+
+
+        span {
+            transform: rotate(-45deg);
+            top: 13px;
+            width: 27px;
+        }
+
+
+        span:after {
+            top: 0px;
+            left: 0;
+            transform: rotate(90deg);
+            opacity: 0;
+            width: 0;
+        }
+    }
+}
+
+#menu {
+    z-index: 1 !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    position: fixed !important;
+    top: 0 !important;
+    height: 0 !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    text-align: center !important;
+    padding-top: 20px !important;
+    transition: all 0.3s ease-in-out !important;
+
+    &.overlay {
+        visibility: visible !important;
+        opacity: 1 !important;
+        padding-top: 100px !important;
+        background: rgba(0, 0, 0, 0.774) !important;
+    }
+
+    ul {
+        padding: 0 !important;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        color: #fff;
+        display: block;
+        font-size: 32px;
+        margin-bottom: 30px;
+        text-decoration: none;
+    }
+}
+
+.logoimg {
+
+    width: 300px;
+}
+
+.contener-img {
+
+    display: flex;
+    justify-content: center;
+    margin-top: -60px;
+
+}
+
+.imgcarru {
+
+    width: 500px;
+    height: 400px;
+
+    border: 6px solid #000000;
+}
+
+.glider-contain {
+    margin-top: 20px !important;
+    display: flex;
+    justify-content: center;
+    width: 100% !important;
+}
+
+.glider-slide {
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.p-header {
+
+    font: 500;
+    font-size: 1.2rem;
+    font-family: "ADLaM Display", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/*ani js */
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.animated.infinite {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+}
+
+/*the animation definition*/
+@-webkit-keyframes lightSpeedIn {
+    0% {
+        -webkit-transform: translate3d(100%, 0, 0) skewX(-30deg);
+        transform: translate3d(100%, 0, 0) skewX(-30deg);
+        opacity: 0
+    }
+
+    60% {
+        -webkit-transform: skewX(20deg);
+        transform: skewX(20deg);
+        opacity: 1
+    }
+
+    80% {
+        -webkit-transform: skewX(-5deg);
+        transform: skewX(-5deg);
+        opacity: 1
+    }
+
+    100% {
+        -webkit-transform: none;
+        transform: none;
+        opacity: 1
+    }
+}
+
+@keyframes lightSpeedIn {
+    0% {
+        -webkit-transform: translate3d(100%, 0, 0) skewX(-30deg);
+        -ms-transform: translate3d(100%, 0, 0) skewX(-30deg);
+        transform: translate3d(100%, 0, 0) skewX(-30deg);
+        opacity: 0
+    }
+
+    60% {
+        -webkit-transform: skewX(20deg);
+        -ms-transform: skewX(20deg);
+        transform: skewX(20deg);
+        opacity: 1
+    }
+
+    80% {
+        -webkit-transform: skewX(-5deg);
+        -ms-transform: skewX(-5deg);
+        transform: skewX(-5deg);
+        opacity: 1
+    }
+
+    100% {
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none;
+        opacity: 1
+    }
+}
+
+.lightSpeedIn {
+    -webkit-animation-name: lightSpeedIn;
+    animation-name: lightSpeedIn;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out
+}
+
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.animated.infinite {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+}
+
+/*the animation definition*/
+@-webkit-keyframes rubberBand {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1)
+    }
+
+    30% {
+        -webkit-transform: scale3d(1.25, .75, 1);
+        transform: scale3d(1.25, .75, 1)
+    }
+
+    40% {
+        -webkit-transform: scale3d(0.75, 1.25, 1);
+        transform: scale3d(0.75, 1.25, 1)
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.15, .85, 1);
+        transform: scale3d(1.15, .85, 1)
+    }
+
+    65% {
+        -webkit-transform: scale3d(.95, 1.05, 1);
+        transform: scale3d(.95, 1.05, 1)
+    }
+
+    75% {
+        -webkit-transform: scale3d(1.05, .95, 1);
+        transform: scale3d(1.05, .95, 1)
+    }
+
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1)
+    }
+}
+
+@keyframes rubberBand {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        -ms-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1)
+    }
+
+    30% {
+        -webkit-transform: scale3d(1.25, .75, 1);
+        -ms-transform: scale3d(1.25, .75, 1);
+        transform: scale3d(1.25, .75, 1)
+    }
+
+    40% {
+        -webkit-transform: scale3d(0.75, 1.25, 1);
+        -ms-transform: scale3d(0.75, 1.25, 1);
+        transform: scale3d(0.75, 1.25, 1)
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.15, .85, 1);
+        -ms-transform: scale3d(1.15, .85, 1);
+        transform: scale3d(1.15, .85, 1)
+    }
+
+    65% {
+        -webkit-transform: scale3d(.95, 1.05, 1);
+        -ms-transform: scale3d(.95, 1.05, 1);
+        transform: scale3d(.95, 1.05, 1)
+    }
+
+    75% {
+        -webkit-transform: scale3d(1.05, .95, 1);
+        -ms-transform: scale3d(1.05, .95, 1);
+        transform: scale3d(1.05, .95, 1)
+    }
+
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        -ms-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1)
+    }
+}
+
+.rubberBand {
+    -webkit-animation-name: rubberBand;
+    animation-name: rubberBand;
+}
+
+
+/*                 */
+.cont-txt {
+
+    margin-top: 60px;
+    text-align: center;
+}
+
+h1 {
+    border-top: 4px solid black;
+    font-size: 3rem;
+    margin-top: 10px;
+    font-family: "ADLaM Display", system-ui;
+    font-weight: 800;
+    font-style: normal;
+}
+
+h2 {
+
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-family: "Castoro Titling", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+h3 {
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 10px;
+    font-family: "ADLaM Display", system-ui;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.servicios {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    background-color: #FA1A1B;
+    height: 3px;
+    width: 20%;
+    display: block;
+    left: 40%;
+}
+h3::after {
+    content: '';
+    position: absolute;
+    background-color: #FA1A1B;
+    height: 3px;
+    width: 20%;
+    display: block;
+    left: 40%;
+}
+@media only screen and (max-width: 600px) {
+    .contenedor-head {
+        flex-wrap: wrap;
+    }
+
+    .logoimg {
+
+        width: 300px;
+    }
+
+    .imgcarru {
+
+        width: 100vh;
+        height: 250px;
+    }
+
+    h1 {
+        border-top: 4px solid black;
+        font-size: 2rem;
+        margin-top: 10px;
+        font-family: "ADLaM Display", system-ui;
+        font-weight: 800;
+        font-style: normal;
+    }
+
+    h2 {
+
+        margin-top: 20px;
+        font-size: 1rem;
+        font-family: "Castoro Titling", serif;
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    .serv {
+
+        width: 330px;
+
+    }
+}
