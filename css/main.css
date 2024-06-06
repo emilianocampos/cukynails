@@ -46,73 +46,61 @@ body {
     overflow: visible;
     position: relative;
     z-index: 2;
-
     font-family: sans-serif;
+}
 
+#burger-menu span,
+#burger-menu span:before,
+#burger-menu span:after {
+    background: #000000;
+    display: block;
+    height: 2px;
+    opacity: 1;
+    position: absolute;
+    transition: 0.3s ease-in-out;
+}
 
-    span,
-    span:before,
-    span:after {
-        background: #000000;
-        display: block;
-        height: 2px;
-        opacity: 1;
-        position: absolute;
-        transition: 0.3s ease-in-out;
-    }
+#burger-menu span:before,
+#burger-menu span:after {
+    content: '';
+}
 
-    span:before,
-    span:after {
-        content: '';
-    }
+#burger-menu span:before {
+    left: 0px;
+    top: -10px;
+    width: 27px;
+}
 
+#burger-menu span {
+    right: 0px;
+    top: 13px;
+    width: 27px;
+}
 
-    span:before {
-        left: 0px;
-        top: -10px;
-        width: 27px;
-    }
+#burger-menu span:after {
+    left: 0px;
+    top: 10px;
+    width: 27px;
+}
 
+#burger-menu.close span:before {
+    top: 0px;
+    transform: rotate(90deg);
+    width: 27px;
+}
 
-    span {
-        right: 0px;
-        top: 13px;
-        width: 27px;
-    }
+#burger-menu.close span {
+    transform: rotate(-45deg);
+    top: 13px;
+    width: 27px;
+}
 
-
-    span:after {
-        left: 0px;
-        top: 10px;
-        width: 27px;
-    }
-
-
-    &.close {
-
-
-        span:before {
-            top: 0px;
-            transform: rotate(90deg);
-            width: 27px;
-        }
-
-
-        span {
-            transform: rotate(-45deg);
-            top: 13px;
-            width: 27px;
-        }
-
-
-        span:after {
-            top: 0px;
-            left: 0;
-            transform: rotate(90deg);
-            opacity: 0;
-            width: 0;
-        }
-    }
+#burger-menu.close span:after {
+    top: 0px;
+    left: 0;
+    transform: rotate(90deg);
+    opacity: 0;
+    width: 0;
 }
 
 #menu {
@@ -127,31 +115,30 @@ body {
     text-align: center !important;
     padding-top: 20px !important;
     transition: all 0.3s ease-in-out !important;
-
-    &.overlay {
-        visibility: visible !important;
-        opacity: 1 !important;
-        padding-top: 100px !important;
-        background: rgba(0, 0, 0, 0.774) !important;
-    }
-
-    ul {
-        padding: 0 !important;
-    }
-
-    li {
-        list-style: none;
-    }
-
-    a {
-        color: #fff;
-        display: block;
-        font-size: 32px;
-        margin-bottom: 30px;
-        text-decoration: none;
-    }
 }
 
+#menu.overlay {
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding-top: 100px !important;
+    background: rgba(0, 0, 0, 0.774) !important;
+}
+
+#menu ul {
+    padding: 0 !important;
+}
+
+#menu li {
+    list-style: none;
+}
+
+#menu a {
+    color: #fff;
+    display: block;
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-decoration: none;
+}
 .logoimg {
 
     width: 300px;
