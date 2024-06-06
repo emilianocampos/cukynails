@@ -23,6 +23,14 @@ body {
     display: flex !important;
     align-items: center !important;
     gap: 5px !important;
+    padding: 10px;
+}
+
+.esmalte {
+
+    width: 200px;
+    position: absolute;
+    left: 20px;
 }
 
 .icon {
@@ -429,6 +437,7 @@ h1::after {
     display: block;
     left: 40%;
 }
+
 h3::after {
     content: '';
     position: absolute;
@@ -437,6 +446,35 @@ h3::after {
     width: 20%;
     display: block;
     left: 40%;
+}
+
+.container-mp {
+margin-top: 20px;
+    width: 100%;
+    background-color:#f7a7d873;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.imgdmp{
+
+    width: 100px;
+
+}
+.medios{
+    display: flex;
+    align-items: center;
+}
+
+.pmp{
+    text-align: center;
+    font-size: 1.5rem;
+  
+    
+    margin-top: 10px;
+    font-family: "ADLaM Display", system-ui;
+    font-weight: 400;
+    font-style: normal;
 }
 @media only screen and (max-width: 600px) {
     .contenedor-head {
@@ -450,8 +488,8 @@ h3::after {
 
     .imgcarru {
 
-        width: 100vh;
-        height: 250px;
+        width: auto;
+        height: 400px;
     }
 
     h1 {
@@ -461,6 +499,13 @@ h3::after {
         font-family: "ADLaM Display", system-ui;
         font-weight: 800;
         font-style: normal;
+    }
+
+    .esmalte {
+
+        width: 100px;
+        position: absolute;
+        left: -14px;
     }
 
     h2 {
@@ -477,4 +522,33 @@ h3::after {
         width: 330px;
 
     }
+    .container-mp {
+        
+        
+        display: flex;
+        
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        }
+        .imgdmp{
+        
+            width: 50px;
+        
+        }
+        .medios{
+            display: flex;
+            align-items: center;
+        }
+        
+        .pmp{
+            text-align: center;
+            font-size: 1.5rem;
+          
+            
+            margin-top: 10px;
+            font-family: "ADLaM Display", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
 }
