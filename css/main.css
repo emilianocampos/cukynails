@@ -176,7 +176,7 @@ body {
     font-family: "ADLaM Display", system-ui;
     font-weight: 400;
     font-style: normal;
-    text-shadow: 4px 4px 4px rgba(0,0,0,0.62);
+
 }
 
 
@@ -576,7 +576,7 @@ h1 {
 }
 
 h2 {
-    text-shadow: 4px 4px 4px rgba(0,0,0,0.62);
+   
     margin-top: 20px;
     font-size: 1.5rem;
     font-family: "Castoro Titling", serif;
