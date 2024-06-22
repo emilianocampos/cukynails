@@ -633,9 +633,7 @@ h3::after {
 }
 
 .container-mp {
-    box-shadow: 13px 13px 5px -3px rgba(0, 0, 0, 0.51);
-    -webkit-box-shadow: 13px 13px 5px -3px rgba(0, 0, 0, 0.51);
-    -moz-box-shadow: 13px 13px 5px -3px rgba(0, 0, 0, 0.51);
+
     width: 100%;
     background-color: #f7a7d873;
     display: flex;
