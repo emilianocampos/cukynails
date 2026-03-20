@@ -1,229 +1,609 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CUKI NAILS CBA </title>
+    <title>Cuki Nails - Home Studio Córdoba</title>
+    <meta name="description"
+        content="Cuki Nails Córdoba. Date tiempo para cuidarte. Manicura, pedicura y nail art personalizado.">
+
+    <!-- Fonts: Poppins & Castoro Titling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Castoro+Titling&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cuki: {
+                            50: '#fdf6f0',
+                            100: '#f5c6d6', // Primary pink
+                            200: '#f7a7d8', // Original pink
+                            700: '#be185d',
+                            900: '#1a1a1a', // Elegant black typography
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['"Castoro Titling"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="http://anijs.github.io/lib/anicollection/anicollection.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- AniJS & AnimaCollection CSS -->
+    <link rel="stylesheet" href="https://anijs.github.io/lib/anicollection/anicollection.css">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
     <link rel="shortcut icon" href="./assets/logo.jpeg" type="image/x-icon">
+
+    <style>
+        /* Custom Swiper Dimensions */
+        .swiper {
+            width: 100%;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            height: 350px;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Floating WhatsApp animation */
+        @keyframes bounce-slow {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .whatsapp-float {
+            animation: bounce-slow 3s infinite;
+        }
+
+        /* Hero geometric bg */
+        .bg-hero-pattern {
+            background-color: #fdf6f0;
+            background-image: radial-gradient(#f5c6d6 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
 </head>
 
-<body>
+<body class="bg-cuki-50 text-cuki-900 font-sans antialiased overflow-x-hidden">
 
-    <header class="contenedor-head" id="inicio">
-        <div class="item">
-            <img src="./assets/telefono-inteligente.png" alt="" class="icon tada animated">
-            <p class="p-header">28041986055</p>
-        </div>
-        <div class="item">
-            <img src="./assets/nuevo-correo-electronico.png" alt="" class="icon tada animated">
-            <p class="p-header">cukinailscba@gmail.com</p>
-        </div>
-        <div class="item">
-            <img src="./assets/icons8-instagram-48.png" alt="" class="icon bounce animated">
-            <p class="p-header"><a href="https://www.instagram.com/cuki.nailscba/"
-                    style="text-decoration: none; color: black;">cuki.nailscba
-                </a></p>
-        </div>
+    <!-- Navbar Sticky -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <img class="h-12 w-12 rounded-full shadow-md object-cover" src="./assets/logo.jpeg"
+                        alt="Cuki Nails Logo">
+                    <span class="font-serif font-bold text-xl tracking-tight hidden sm:block">Cuki Nails</span>
+                </div>
 
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="text-gray-700 hover:text-cuki-700 font-medium transition">Inicio</a>
+                    <a href="#sobre-mi" class="text-gray-700 hover:text-cuki-700 font-medium transition">Sobre mí</a>
+                    <a href="#servicios" class="text-gray-700 hover:text-cuki-700 font-medium transition">Servicios</a>
+                    <a href="#galeria" class="text-gray-700 hover:text-cuki-700 font-medium transition">Galería</a>
+                </div>
 
-    </header>
-    <main>
-        <div id="burger-menu">
-            <span></span>
-        </div>
-        <div class="contener-imgg">
-            <img src="./assets/logo.jpeg" alt="" class="logoimg pulse animated">
-        </div>
+                <!-- CTA & Social (Desktop) -->
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="https://www.instagram.com/cuki.nailscba/" target="_blank"
+                        class="text-gray-700 hover:text-pink-600 transition text-2xl">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/54928041986055" target="_blank"
+                        class="bg-cuki-900 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-cuki-700 transition shadow-lg transform hover:-translate-y-1">
+                        Reservar Turno
+                    </a>
+                </div>
 
-
-        <swiper-container class="mySwiper" pagination="true" effect="coverflow" grab-cursor="true"
-            centered-slides="true" slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0"
-            coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
-            <swiper-slide>
-                <img src="./assets/img1.jpeg" />
-            </swiper-slide>
-            <swiper-slide>
-                <img src="./assets/img5.jpeg" />
-            </swiper-slide>
-            <swiper-slide>
-                <img src="./assets/img14.jpeg" />
-            </swiper-slide>
-            <swiper-slide>
-                <img src="./assets/img16.jpeg" />
-            </swiper-slide>
-            <swiper-slide>
-                <img src="./assets/img17.jpeg" />
-            </swiper-slide>
-            <swiper-slide>
-                <img src="./assets/img24.jpeg" />
-            </swiper-slide>
-        </swiper-container>
-
-
-
-
-
-
-
-        <div id="menu">
-            <ul>
-                <li><a href="https://cukinails.netlify.app/">Incio</a></li>
-                <li><a href="#ser">Servicios</a></li>
-                <li><a href="https://cukinails.netlify.app/secciones/galeria">Galeria</a></li>
-
-
-            </ul>
-        </div>
-
-        <div class="cont-txt">
-
-            <h1 data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="500">Uñas en Cordoba</h1>
-
-
-
-            <h2>Si buscas un lugar para hacerte las uñas en Córdoba estás en el sitio adecuado. En Cuki Nails
-                trabajamos para darte el mejor servicio, cuidarte y personalizarte cualquier diseño.</h2>
-            <h2>Con el ritmo frenético que afrontamos en nuestro día a día tenemos que tener espacios y momentos para
-                dedicarnos a nosotros mismos, a cuidar nuestra salud física y mental. Regalarnos tiempo es el mayor acto
-                de amor que nos podemos hacer, y por eso cuidar y mimar nuestro cuerpo es la mejor medicina para nuestro
-                autoestima y apariencia.</h2>
-        </div>
-
-
-        <h3 data-aos="fade-down" data-aos-easing="linear" data-aos-duration="500" id="ser">Servicios</h3>
-        <div class="servicios">
-            <div data-aos="zoom-out-up"><img src="./assets/servi1.jpeg" alt="" class="serv"></div>
-            <div data-aos="zoom-out-up"><img src="./assets/servi2.jpeg" alt="" class="serv"></div>
-            <div data-aos="zoom-out-up"><img src="./assets/servi3.jpeg" alt="" class="serv"></div>
-            <div data-aos="zoom-out-up"><img src="./assets/ser5.jpg" alt="" class="serv"></div>
-        </div>
-        <div class="container-mp">
-
-            <div class="medios"> <img src="./assets/dar-dinero.png" alt="" class="imgdmp">
-                <p class="pmp">EFECTIVO</p>
-            </div>
-            <div class="medios"> <img src="./assets/transferencia-movil.png" alt="" class="imgdmp">
-                <p class="pmp">TRANSFERENCIA</p>
-            </div>
-            <div class="medios"> <img src="./assets/tarjeta-de-debito.png" alt="" class="imgdmp">
-                <p class="pmp">TARJETA CREDITO/DEBITO <br> A TRAVES DE MERCADO PAGO</p>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-cuki-700 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
             </div>
         </div>
 
-
-
-        <div class="cont-link">
-            <a href="./secciones/galeria.html" class="linka">
-                <img src="./assets/White Brown Modern October Gallery Photo Collage.png" alt="" class="imgs">
-            </a>
-            <a href="https://www.instagram.com/p/CpdJ8rGJHbm/?img_index=1" class="linka">
-                <img src="./assets/reseña.png" alt="" class="imgs">
-            </a>
-
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white/95 backdrop-blur-lg shadow-xl absolute w-full border-t border-gray-100">
+            <div class="px-4 py-6 flex flex-col items-center space-y-4">
+                <a href="#inicio" class="text-gray-800 font-semibold text-lg hover:text-cuki-700 transition">Inicio</a>
+                <a href="#sobre-mi" class="text-gray-800 font-semibold text-lg hover:text-cuki-700 transition">Sobre
+                    mí</a>
+                <a href="#servicios"
+                    class="text-gray-800 font-semibold text-lg hover:text-cuki-700 transition">Servicios</a>
+                <a href="#galeria"
+                    class="text-gray-800 font-semibold text-lg hover:text-cuki-700 transition">Galería</a>
+                <div class="h-px bg-gray-200 w-full my-2"></div>
+                <div class="flex gap-4 mb-2">
+                    <a href="https://www.instagram.com/cuki.nailscba/" target="_blank"
+                        class="text-gray-800 hover:text-pink-600 text-3xl"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="mailto:cukinailscba@gmail.com" class="text-gray-800 hover:text-pink-600 text-3xl"><i
+                            class="fa-regular fa-envelope"></i></a>
+                </div>
+                <a href="https://wa.me/54928041986055" target="_blank"
+                    class="w-full text-center bg-cuki-900 text-white px-6 py-3 rounded-full font-semibold hover:bg-cuki-700 transition shadow-lg">
+                    Reservar Turno
+                </a>
+            </div>
         </div>
-        <div class="cont-popup">
-            <div class="popup">
-                <form class="form" action="https://formsubmit.co/cukinailscba@gmail.com" method="POST">
-                    <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 34 34" height="34" width="34">
-                            <path stroke-linejoin="round" stroke-width="2.5" stroke="#115DFC"
-                                d="M7.08385 9.91666L5.3572 11.0677C4.11945 11.8929 3.50056 12.3055 3.16517 12.9347C2.82977 13.564 2.83226 14.3035 2.83722 15.7825C2.84322 17.5631 2.85976 19.3774 2.90559 21.2133C3.01431 25.569 3.06868 27.7468 4.67008 29.3482C6.27148 30.9498 8.47873 31.0049 12.8932 31.1152C15.6396 31.1838 18.3616 31.1838 21.1078 31.1152C25.5224 31.0049 27.7296 30.9498 29.331 29.3482C30.9324 27.7468 30.9868 25.569 31.0954 21.2133C31.1413 19.3774 31.1578 17.5631 31.1639 15.7825C31.1688 14.3035 31.1712 13.564 30.8359 12.9347C30.5004 12.3055 29.8816 11.8929 28.6437 11.0677L26.9171 9.91666">
-                            </path>
-                            <path stroke-linejoin="round" stroke-width="2.5" stroke="#115DFC"
-                                d="M2.83331 14.1667L12.6268 20.0427C14.7574 21.3211 15.8227 21.9603 17 21.9603C18.1772 21.9603 19.2426 21.3211 21.3732 20.0427L31.1666 14.1667">
-                            </path>
-                            <path stroke-width="2.5" stroke="#115DFC"
-                                d="M7.08331 17V8.50001C7.08331 5.82872 7.08331 4.49307 7.91318 3.66321C8.74304 2.83334 10.0787 2.83334 12.75 2.83334H21.25C23.9212 2.83334 25.2569 2.83334 26.0868 3.66321C26.9166 4.49307 26.9166 5.82872 26.9166 8.50001V17">
-                            </path>
-                            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" stroke="#115DFC"
-                                d="M14.1667 14.1667H19.8334M14.1667 8.5H19.8334"></path>
-                        </svg>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative pt-24 pb-12 lg:pt-36 lg:pb-24 bg-hero-pattern overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
+                <!-- Text Content -->
+                <div class="lg:col-span-5 text-center lg:text-left mb-12 lg:mb-0"
+                    data-anijs="if: load, on: window, do: fadeInLeft animated">
+                    <span class="text-cuki-700 font-semibold tracking-wider uppercase text-sm mb-4 block">Home Studio
+                        Exclusivo</span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-cuki-900 leading-tight mb-6">
+                        Belleza y cuidado <br> para tus <span class="text-cuki-700">uñas</span>
+                    </h1>
+                    <p class="text-lg text-gray-700 mb-8 max-w-xl mx-auto lg:mx-0">
+                        Si buscas un lugar para hacerte las uñas en Córdoba, estás en el sitio adecuado. Te brindamos el
+                        mejor servicio, cuidado detallado y diseños 100% personalizados.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="https://wa.me/54928041986055" target="_blank"
+                            class="bg-cuki-900 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-black transition shadow-xl hover:shadow-2xl flex justify-center items-center gap-2 group">
+                            <i class="fa-brands fa-whatsapp text-xl group-hover:scale-110 transition"></i>
+                            Reservar Turno
+                        </a>
+                        <a href="#servicios"
+                            class="bg-white text-cuki-900 border border-gray-200 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-50 transition shadow-sm flex justify-center items-center">
+                            Ver Servicios
+                        </a>
                     </div>
-                    <div class="note">
-                        <label class="title">Solicita tu consulta ahora !</label>
+                </div>
 
+                <!-- Swiper Slider / Image Content -->
+                <div class="lg:col-span-7 relative" data-anijs="if: load, on: window, do: fadeInRight animated">
+                    <div
+                        class="absolute inset-0 bg-cuki-100 rounded-full blur-3xl opacity-30 transform translate-x-10 translate-y-10">
                     </div>
-                    <input type="text" class="input_field" placeholder="Ingresar nombre" name="nombre: ">
-                    <input placeholder="Ingresa tu e-mail" title="Enter your e-mail" name="email: " type="email"
-                        class="input_field">
-                    <input type="text" class="input_field" placeholder="Escribi tu consulta" name="consulta: ">
-                    <button class="submit">Enviar</button>
-                    <input type="hidden" name="_next" value="https://cukinails.netlify.app/">
-                </form>
+                    <!-- Swiper -->
+                    <div class="swiper myHeroSwiper relative z-10">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="./assets/img1.jpeg" alt="Uñas Cuki Nails"></div>
+                            <div class="swiper-slide"><img src="./assets/img14.jpeg" alt="Diseño de Uñas"></div>
+                            <div class="swiper-slide"><img src="./assets/img5.jpeg" alt="Manicura Córdoba"></div>
+                            <div class="swiper-slide"><img src="./assets/img16.jpeg" alt="Nail Art Córdoba"></div>
+                            <div class="swiper-slide"><img src="./assets/img17.jpeg" alt="Uñas Acrílicas"></div>
+                            <div class="swiper-slide"><img src="./assets/img24.jpeg" alt="Nail Art Elegante"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
             </div>
         </div>
-    </main>
-    <footer class="body">
+    </section>
 
-        <div class="footer">
-            <div class="bubbles">
-
-
-
-                <div class="bubble"
-                    style="--size:5.799344892341984rem; --distance:6.80580537600262rem; --position:89.54997686494237%; --time:2.404806342244211s; --delay:-2.8617688432191155s;">
-                </div>
-                <div class="bubble"
-                    style="--size:3.098776392265459rem; --distance:9.568211935938356rem; --position:104.40135595571702%; --time:3.3685561920650438s; --delay:-3.171422425914168s;">
-                </div>
-                <div class="bubble"
-                    style="--size:4.281431989504795rem; --distance:8.28166703499318rem; --position:56.825387696264315%; --time:2.95243129511775s; --delay:-3.832340743863525s;">
-                </div>
-                <div class="bubble"
-                    style="--size:3.0673350527367464rem; --distance:6.679713974278795rem; --position:59.487572593845215%; --time:3.2471351942170417s; --delay:-3.3771297279287213s;">
-                </div>
-                <div class="bubble"
-                    style="--size:5.833084513831618rem; --distance:9.57968360195182rem; --position:82.66983325959248%; --time:2.3129401217443935s; --delay:-2.015765404338033s;">
-                </div>
-
-                <div class="bubble"
-                    style="--size:3.5681238064283427rem; --distance:6.824713858089334rem; --position:10.139574650635693%; --time:2.9802245048959324s; --delay:-3.097417311932441s;">
-                </div>
-                <div class="bubble"
-                    style="--size:5.667126707249513rem; --distance:6.3117277421512235rem; --position:37.83411342773136%; --time:3.0058297970233245s; --delay:-2.096205695767944s;">
-                </div>
-                <div class="bubble"
-                    style="--size:5.886920191671226rem; --distance:8.799654617431194rem; --position:5.527007091969127%; --time:2.26170147413172s; --delay:-3.989808983819567s;">
-                </div>
-                <div class="bubble"
-                    style="--size:5.361393468309794rem; --distance:6.31513177923691rem; --position:66.47120637398206%; --time:2.979040577248415s; --delay:-2.45438930501787s;">
+    <!-- Sobre mí Section -->
+    <section id="sobre-mi" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-cuki-50 rounded-3xl p-8 md:p-16 shadow-lg border border-cuki-100/50"
+                data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-cuki-700 font-semibold tracking-wider uppercase text-sm mb-2">Sobre Caro Vazquez
+                            Campazzo</h2>
+                        <h3 class="text-3xl font-serif font-bold text-cuki-900 mb-6">Regalarte tiempo es el mayor acto
+                            de amor</h3>
+                        <p class="text-gray-700 mb-6 leading-relaxed">
+                            Con el ritmo frenético que afrontamos en nuestro día a día, necesitamos tener espacios y
+                            momentos para dedicarnos a nosotras mismas, a cuidar nuestra salud física y mental.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed font-medium">
+                            En mi Home Studio te ofrezco un espacio seguro y relajante. Mimar nuestro cuerpo es la mejor
+                            medicina para nuestro autoestima y apariencia. ¡Te espero para dejar tus manos increíbles!
+                        </p>
+                        <div class="mt-8 flex gap-4">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-white p-3 rounded-full text-cuki-700 shadow-sm">
+                                    <i class="fa-solid fa-heart"></i>
+                                </div>
+                                <span class="font-medium text-sm">Amor por los detalles</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="bg-white p-3 rounded-full text-cuki-700 shadow-sm">
+                                    <i class="fa-solid fa-palette"></i>
+                                </div>
+                                <span class="font-medium text-sm">Diseños personalizados</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <!-- We use one of the images to represent the studio vibe -->
+                        <div
+                            class="aspect-square rounded-2xl overflow-hidden shadow-xl border-4 border-white transform rotate-3 hover:rotate-0 transition duration-500">
+                            <img src="./assets/img20.jpeg" onerror="this.src='./assets/servi4.jpg'"
+                                alt="Home Studio Cuki Nails" class="w-full h-full object-cover">
+                        </div>
+                        <div
+                            class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg border border-gray-100 transform -rotate-6">
+                            <p class="font-serif font-bold text-xl text-center">Home<br>Studio</p>
+                            <p class="text-xs text-gray-500 text-center uppercase tracking-widest mt-1">Córdoba</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="content">
-                <div>
+        </div>
+    </section>
 
+    <!-- Servicios Section -->
+    <section id="servicios" class="py-24 bg-cuki-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16"
+                data-anijs="if: scroll, on: window, do: fadeIn animated, before: scrollReveal">
+                <h2 class="text-cuki-700 font-semibold tracking-wider uppercase text-sm mb-2">Lo que hacemos</h2>
+                <h3 class="text-4xl font-serif font-bold text-cuki-900 mb-6">Nuestros Servicios</h3>
+                <p class="text-gray-700 text-lg">Trabajamos con productos de primera calidad, garantizando durabilidad y
+                    un acabado profesional impecable en cada servicio.</p>
+            </div>
 
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Serv 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group"
+                    data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="./assets/servi1.jpeg" alt="Servicio de uñas Cuki Nails"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-300">
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="font-bold text-xl mb-2 text-cuki-900">Semipermanente</h4>
+                        <p class="text-sm text-gray-600 mb-4">Cuidado completo y esmaltado duradero con acabado
+                            perfecto.</p>
+                        <a href="https://wa.me/54928041986055"
+                            class="text-cuki-700 font-semibold hover:text-cuki-900 transition flex items-center justify-center gap-2">Consultar
+                            <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                    </div>
                 </div>
-                <div><a class="image" href="https://codepen.io/z-" target="_blank"
-                        style="background-image: url(&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/happy.svg&quot;)"></a>
-                    <p class="by"> CUKI NAILS BY </p>
-                    <p class="by">CARO VAZQUEZ CAMPAZZO</p>
+                <!-- Serv 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group"
+                    data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="./assets/servi2.jpeg" alt="Nail Art Cuki Nails"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-300">
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="font-bold text-xl mb-2 text-cuki-900">Nail Art</h4>
+                        <p class="text-sm text-gray-600 mb-4">Diseños personalizados a mano alzada para destacar tu
+                            estilo.</p>
+                        <a href="https://wa.me/54928041986055"
+                            class="text-cuki-700 font-semibold hover:text-cuki-900 transition flex items-center justify-center gap-2">Consultar
+                            <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                    </div>
+                </div>
+                <!-- Serv 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group"
+                    data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="./assets/servi3.jpeg" alt="Esculpidas Cuki Nails"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-300">
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="font-bold text-xl mb-2 text-cuki-900">Esculpidas</h4>
+                        <p class="text-sm text-gray-600 mb-4">Uñas largas y resistentes construidas con materiales
+                            premium.</p>
+                        <a href="https://wa.me/54928041986055"
+                            class="text-cuki-700 font-semibold hover:text-cuki-900 transition flex items-center justify-center gap-2">Consultar
+                            <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                    </div>
+                </div>
+                <!-- Serv 4 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group"
+                    data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="./assets/ser5.jpg" alt="Mantenimiento Cuki Nails"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition duration-300">
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="font-bold text-xl mb-2 text-cuki-900">Spa & Cuidado</h4>
+                        <p class="text-sm text-gray-600 mb-4">Tratamientos hidratantes y reparadores para manos
+                            perfectas.</p>
+                        <a href="https://wa.me/54928041986055"
+                            class="text-cuki-700 font-semibold hover:text-cuki-900 transition flex items-center justify-center gap-2">Consultar
+                            <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                    </div>
                 </div>
             </div>
-        </div><svg style="position:fixed; top:100vh">
-            <defs>
-                <filter id="blob">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
-                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
-                        result="blob"></feColorMatrix>
-                </filter>
-            </defs>
-        </svg>
+        </div>
+    </section>
 
+    <!-- Galería Destacada y Opiniones -->
+    <section id="galeria" class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Opiniones -->
+                <div data-anijs="if: scroll, on: window, do: fadeInLeft animated, before: scrollReveal">
+                    <h2 class="text-cuki-700 font-semibold tracking-wider uppercase text-sm mb-2">Lo que dicen las
+                        clientas</h2>
+                    <h3 class="text-4xl font-serif font-bold text-cuki-900 mb-8">Experiencias reales</h3>
+                    <div
+                        class="relative bg-white p-2 rounded-3xl shadow-2xl border border-gray-100 transform hover:scale-[1.02] transition-transform duration-300">
+                        <div class="absolute -top-6 -left-6 text-5xl text-cuki-200 opacity-50"><i
+                                class="fa-solid fa-quote-left"></i></div>
+                        <a href="https://www.instagram.com/p/CpdJ8rGJHbm/?img_index=1" target="_blank" class="block">
+                            <!-- Existing Review Image utilized contextually -->
+                            <img src="./assets/reseña.png" alt="Reseña Cuki Nails"
+                                class="w-full h-auto rounded-2xl object-contain">
+                        </a>
+                    </div>
+                    <p class="text-gray-600 mt-6 text-sm italic">* Las opiniones de mis clientas son el motor de mi
+                        trabajo diario. Siempre buscando la perfección.</p>
+                </div>
+
+                <!-- Collage Galeria -->
+                <div data-anijs="if: scroll, on: window, do: fadeInRight animated, before: scrollReveal">
+                    <h3 class="text-4xl font-serif font-bold text-cuki-900 mb-8 text-right hidden lg:block">Últimos
+                        Trabajos</h3>
+                    <div class="flex justify-center lg:justify-end">
+                        <a href="https://www.instagram.com/cuki.nailscba/" target="_blank"
+                            class="relative group block overflow-hidden rounded-3xl shadow-xl w-full max-w-md">
+                            <!-- Collage image -->
+                            <img src="./assets/White Brown Modern October Gallery Photo Collage.png"
+                                alt="Galería Cuki Nails"
+                                class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500">
+
+                            <div
+                                class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                                <span
+                                    class="bg-white text-cuki-900 px-6 py-3 rounded-full font-bold flex items-center gap-2">
+                                    <i class="fa-brands fa-instagram"></i> Ver en Instagram
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Medios de Pago & Reservas -->
+    <section class="py-20 bg-cuki-100/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-serif font-bold text-center text-cuki-900 mb-12"
+                data-anijs="if: scroll, on: window, do: fadeIn animated, before: scrollReveal">Medios de Pago Aceptados
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition text-center"
+                    data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal">
+                    <img src="./assets/dar-dinero.png" alt="Efectivo" class="w-20 mx-auto mb-4 drop-shadow-sm">
+                    <h4 class="font-bold text-lg text-cuki-900">Efectivo</h4>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition text-center"
+                    data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal">
+                    <img src="./assets/transferencia-movil.png" alt="Transferencia"
+                        class="w-20 mx-auto mb-4 drop-shadow-sm">
+                    <h4 class="font-bold text-lg text-cuki-900">Transferencia Bancaria</h4>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition text-center"
+                    data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal">
+                    <img src="./assets/tarjeta-de-debito.png" alt="Tarjetas" class="w-20 mx-auto mb-4 drop-shadow-sm">
+                    <h4 class="font-bold text-lg text-cuki-900">Crédito / Débito</h4>
+                    <p class="text-xs text-gray-500 mt-2">A través de Mercado Pago</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <footer class="bg-cuki-900 text-white relative overflow-hidden">
+        <!-- Floating decorative bubbles -->
+        <div class="absolute top-0 left-10 w-32 h-32 bg-white/5 rounded-full blur-2xl transform -translate-y-1/2"></div>
+        <div
+            class="absolute bottom-0 right-10 w-48 h-48 bg-cuki-700/20 rounded-full blur-3xl transform translate-y-1/2">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-start mb-16 border-b border-white/10 pb-16">
+
+                <!-- Contact Info -->
+                <div data-anijs="if: scroll, on: window, do: fadeInLeft animated, before: scrollReveal">
+                    <div class="flex items-center gap-4 mb-6">
+                        <img src="./assets/logo.jpeg" alt="Logo"
+                            class="w-16 h-16 rounded-full border-2 border-white/20">
+                        <div>
+                            <h3 class="font-serif font-bold text-2xl tracking-wide">Cuki Nails</h3>
+                            <p class="text-gray-400 text-sm tracking-widest uppercase">By Caro Vazquez Campazzo</p>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-4 text-gray-300 mt-8">
+                        <li class="flex items-start gap-4 hover:text-white transition">
+                            <div class="bg-white/10 p-3 rounded-full mt-1">
+                                <i class="fa-solid fa-location-dot w-5 text-center"></i>
+                            </div>
+                            <div>
+                                <span class="block font-bold">Ubicación</span>
+                                <span class="text-sm">Córdoba Capital (Home Studio).<br>Ubicación exacta al confirmar
+                                    turno.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4 hover:text-white transition">
+                            <div class="bg-white/10 p-3 rounded-full">
+                                <i class="fa-solid fa-phone w-5 text-center"></i>
+                            </div>
+                            <div>
+                                <span class="block font-bold">WhatsApp</span>
+                                <a href="https://wa.me/54928041986055" class="text-sm">280 419-86055</a>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4 hover:text-white transition">
+                            <div class="bg-white/10 p-3 rounded-full">
+                                <i class="fa-regular fa-envelope w-5 text-center"></i>
+                            </div>
+                            <div>
+                                <span class="block font-bold">Email</span>
+                                <a href="mailto:cukinailscba@gmail.com" class="text-sm">cukinailscba@gmail.com</a>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="mt-8 flex gap-4">
+                        <a href="https://www.instagram.com/cuki.nailscba/" target="_blank"
+                            class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-xl hover:bg-cuki-700 transition">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- FormSubmit Integration -->
+                <div class="bg-white text-cuki-900 p-8 rounded-3xl shadow-xl"
+                    data-anijs="if: scroll, on: window, do: fadeInRight animated, before: scrollReveal">
+                    <h4 class="font-serif font-bold text-2xl mb-2">Envíanos tu consulta</h4>
+                    <p class="text-gray-600 mb-6 text-sm">Completá el formulario y te responderemos a la brevedad.</p>
+
+                    <form class="space-y-4" action="https://formsubmit.co/cukinailscba@gmail.com" method="POST">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
+                            <input type="text" name="nombre" required placeholder="Tu nombre..."
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-cuki-200 focus:border-transparent transition bg-gray-50">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" name="email" required placeholder="tu@email.com"
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-cuki-200 focus:border-transparent transition bg-gray-50">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Consulta</label>
+                            <textarea name="consulta" rows="3" required placeholder="¿En qué te puedo ayudar?"
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-cuki-200 focus:border-transparent transition bg-gray-50 resize-none"></textarea>
+                        </div>
+                        <input type="hidden" name="_next" value="https://cukinails.netlify.app/">
+                        <button type="submit"
+                            class="w-full bg-cuki-900 text-white font-bold py-4 rounded-xl hover:bg-cuki-700 transition shadow-lg mt-2">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="text-center text-gray-500 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
+                <p>&copy;
+                    <script>document.write(new Date().getFullYear())</script> Cuki Nails. Todos los derechos reservados.
+                </p>
+                <p>Diseño <a href="https://www.linkedin.com/in/emiliano-campos/" target="_blank" class="hover:text-cuki-100 transition font-medium">Emiliano Campos</a></p>
+            </div>
+        </div>
     </footer>
-    <script src="./script/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-    <script src="anijs-min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="./script/aos.js"></script>
 
+    <!-- Botón Whatsapp Flotante -->
+    <a href="https://wa.me/54928041986055" target="_blank"
+        class="fixed bottom-6 right-6 lg:bottom-10 lg:right-10 z-[100] bg-green-500 text-white w-14 h-14 lg:w-16 lg:h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:bg-green-600 transition hover:scale-110 whatsapp-float">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://anijs.github.io/lib/anijs/anijs-min.js"></script>
+    <script src="https://anijs.github.io/lib/anijs/helpers/scrollreveal/anijs-helper-scrollreveal-min.js"></script>
+
+    <script>
+        // Init Swiper Effect Coverflow
+        const swiper = new Swiper('.myHeroSwiper', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            coverflowEffect: {
+                rotate: 20,
+                stretch: 0,
+                depth: 200,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                dynamicBullets: true,
+            },
+        });
+
+        // Toggle Mobile Menu
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Change Navbar background on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.replace('bg-white/80', 'bg-white/95');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.replace('bg-white/95', 'bg-white/80');
+            }
+        });
+    </script>
 </body>
 
 </html>
