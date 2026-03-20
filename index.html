@@ -101,7 +101,18 @@
     </style>
 </head>
 
-<body class="bg-cuki-50 text-cuki-900 font-sans antialiased overflow-x-hidden">
+<body class="bg-cuki-50 text-cuki-900 font-sans antialiased overflow-hidden">
+
+    <!-- Preloader -->
+    <div id="loader"
+        class="fixed inset-0 z-[1000] bg-cuki-50 flex flex-col items-center justify-center transition-opacity duration-700">
+        <div class="relative flex items-center justify-center w-24 h-24">
+            <div class="absolute inset-0 rounded-full border-4 border-cuki-200 border-t-cuki-700 animate-spin"></div>
+            <img src="./assets/logo.jpeg" alt="Loading" class="w-16 h-16 rounded-full object-cover animate-pulse">
+        </div>
+        <p class="mt-6 font-serif text-cuki-700 font-bold tracking-[0.2em] text-sm animate-pulse uppercase">Cuki Nails
+        </p>
+    </div>
 
     <!-- Navbar Sticky -->
     <nav class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md shadow-sm" id="navbar">
@@ -536,7 +547,8 @@
                 <p>&copy;
                     <script>document.write(new Date().getFullYear())</script> Cuki Nails. Todos los derechos reservados.
                 </p>
-                <p>Diseño <a href="https://www.linkedin.com/in/emiliano-campos/" target="_blank" class="hover:text-cuki-100 transition font-medium">Emiliano Campos</a></p>
+                <p>Diseño <a href="https://www.linkedin.com/in/emiliano-campos/" target="_blank"
+                        class="hover:text-cuki-100 transition font-medium">Emiliano Campos</a></p>
             </div>
         </div>
     </footer>
@@ -602,6 +614,17 @@
                 navbar.classList.remove('shadow-md');
                 navbar.classList.replace('bg-white/95', 'bg-white/80');
             }
+        });
+
+        // Preloader Logic
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            loader.classList.add('opacity-0');
+            setTimeout(() => {
+                loader.style.display = 'none';
+                document.body.classList.remove('overflow-hidden');
+                document.body.classList.add('overflow-x-hidden');
+            }, 1400);
         });
     </script>
 </body>
